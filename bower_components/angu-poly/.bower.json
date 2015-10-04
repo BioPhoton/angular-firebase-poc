@@ -1,0 +1,28 @@
+{
+  "name": "angu-poly",
+  "version": "1.1.0",
+  "homepage": "https://github.com/matjaz/angu-poly",
+  "authors": [
+    "Matjaz Lipus <matjazl@gmail.com>"
+  ],
+  "license": "MIT",
+  "main": "angupoly.js",
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "example"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0"
+  },
+  "_release": "1.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.1.0",
+    "commit": "9dd547bf604236c5cd473c284c5e3c6588522470"
+  },
+  "_source": "git://github.com/matjaz/angu-poly.git",
+  "_target": "~1.1.0",
+  "_originalSource": "angu-poly",
+  "_direct": true
+}

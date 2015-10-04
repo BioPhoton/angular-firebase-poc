@@ -1,0 +1,110 @@
+<div id="auth" class="resource">
+	<h1>Auth Service</h1>
+	<p>
+	https://docs.google.com/drawings/d/1q3GqIDhmSA8UI8FIrkWaBSV4cXc8otFyBqdlP6EqS5U/pub?w=1440&h=1080<br/>
+	https://www.drupal.org/node/1699354
+	
+	</p>
+	<tabset justified="true">
+
+		<tab heading="Register">
+
+			<h2>Register request</h2>
+
+			<div ng-if="auth.registerServerError" class="alert alert-danger">{{auth.registerServerError}}</div>
+
+			<form name="registerForm" novalidate>
+				<div class="form-group" ng-class="{ 'has-error has-feedback': registerForm.email.$touched && registerForm.email.$invalid || registerForm.email.$invalid && registerForm.$submitted}">
+					<label for="register__email">Email</label>
+					<input type="email" class="form-control" name="email" id="register__email" placeholder="Email" ng-model="auth.registerData.email" required>
+					<form-control-feedback></form-control-feedback>
+					<div class="help-block">
+						<p class="description" ng-if="!registerForm.email.$touched && !registerForm.$submitted || registerForm.email.$valid" >The email address</p>
+
+						<ng-messages class="error" ng-if="registerForm.email.$invalid && registerForm.email.$touched || registerForm.$submitted" for="registerForm.email.$error">
+							<ng-messages-include src="error-required"></ng-messages-include>
+							<ng-messages-include src="error-email"></ng-messages-include>
+						</ng-messages>
+					</div>
+				</div>
+
+				<div class="form-group" ng-class="{ 'has-error has-feedback': registerForm.password.$touched && registerForm.password.$invalid || registerForm.password.$invalid && registerForm.$submitted}">
+					<label for="register__password">Password</label>
+					<input type="password" class="form-control" name="password" id="register__password" placeholder="Password" ng-model="auth.registerData.password" required>
+					<form-control-feedback></form-control-feedback>
+					<div class="help-block">
+						<p class="description" ng-if="!registerForm.password.$touched && !registerForm.$submitted || registerForm.password.$valid">The plain text unencrypted password</p>
+						<ng-messages class="error" ng-if="registerForm.password.$invalid && registerForm.password.$touched || registerForm.$submitted" for="registerForm.password.$error">
+							<ng-messages-include src="error-required"></ng-messages-include>
+						</ng-messages>
+					</div>
+				</div>
+
+				<button class="btn btn-success" ng-click="auth.doRegister(registerForm)">Register</button>
+			</form>
+
+		</tab>
+
+		<tab heading="Login">
+		  	
+			<h2>Login request</h2>
+
+		  	<form name="loginForm">
+		  		<div class="form-group">
+	 				<label for="login__email">Email</label>
+	    			<input type="text" class="form-control" id="login__email" name="email" placeholder="Email" ng-model="auth.loginData.email">
+	    		</div>
+	    		<div class="form-group">
+	 				<label for="login__password">Password</label>
+	    			<input type="password" class="form-control" id="login__password" name="password" placeholder="Password" ng-model="auth.loginData.password">
+	    		</div>
+		  		<button class="btn btn-success" ng-click="auth.doLogin(loginForm)">Login</button>
+		  	</form>
+			
+		</tab>
+
+		<tab heading="Login polymer mix">
+
+			<h2>Login2 request</h2>
+
+			<p>Data: <pre>{{auth.loginData2 | json}}</pre></p>
+
+			<form name="loginForm2">
+
+
+				<gold-email-input name="email" id="loginform_email" required auto-validate error-message="invalid email" label="Email" angupoly="{value:'auth.loginData2.email'}"></gold-email-input>
+				<paper-input name="password" id="loginform_password" type="password" label="Password" angupoly="{value:'auth.loginData2.password'}"></paper-input>
+
+				<button class="btn btn-success" ng-click="auth.doLogin2(loginForm2)">Login</button>
+			</form>
+
+		</tab>
+
+
+
+		<tab heading="Logout">
+			
+			<h2>Logout request</h2>
+		  	
+		  	<form name="logoutForm">
+		  		<button class="btn btn-success" ng-click="auth.doLogout()">logout</button>
+		  	</form>
+			
+		</tab>
+		
+		<tab heading="getAuthState">
+			
+			<h2>Get auth state </h2>
+		  	<p>
+				<b>AuthStatus: </b> <pre>{{auth.authState | json}}</pre>
+
+			</p>
+		  	<form name="getLastConnectTimeForm">
+		  		<button class="btn btn-success" ng-click="auth.getAuth()">getAuth</button>
+		  	</form>
+			
+		</tab>
+ 
+	</tabset>
+	
+</div>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="This is a project for testing firebase and angular">
+    <meta name="author" content="Michael Hladky">
+
+    <title>Headless Drupal tests</title>
+
+    <!-- compiled css -->
+    <link href="./assets/css/app.min.css" rel="stylesheet">
+    
+    <!-- js dependencies -->
+
+    <!-- angular and modules -->
+    <script src="./bower_components/angular/angular.min.js"></script>
+    <script src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="./bower_components/angular-messages/angular-messages.js"></script>
+    <script src="./bower_components/firebase/firebase.js"></script>
+    <script src="./bower_components/angularfire/dist/angularfire.js"></script>
+
+      <!-- polymer -->
+      <script src="bower_components/angu-poly/angupoly.js"></script>
+      <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+      <link rel="import" href="app/commons/polymer/polymer.elements.html">
+
+    <!-- third party libs -->
+    <script src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+	
+	<!-- common directives -->
+    <script src="./app/commons/directives/formControlFeedback.js"></script>
+    
+     <!-- <script src="./assets/js/vendor-8e5ecb0ace.js"></script>  -->
+    
+     <!-- js app files  -->
+     <script src="./app/app.controller.js"></script>    
+     <script src="./app/components/home/home.controller.js"></script>
+     <script src="./app/components/auth/auth.controller.js"></script>
+
+     <script src="./app/app.constant.js"></script>
+  	 <script src="./app/app.config.js"></script>
+     <script src="./app/app.states.js"></script>
+     <script src="./app/app.js"></script>
+    
+   <!-- <script src="./assets/js/main-92686618e4.js"></script> -->
+    
+  </head>  
+  
+  <body ng-app="discere">
+  		<div ui-view></div>
+  </body>
+</html>
