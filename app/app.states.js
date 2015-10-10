@@ -3,8 +3,8 @@
 
 angular
     .module('discere.states', ['ui.router',  'discere.controller',
-                                             'discere.home.controller',
-                                             'discere.auth.controller'
+                                           'discere.home.controller'
+		/*  'discere.auth.controller'*/
 											])
     .config(configFunction);
 
@@ -22,7 +22,7 @@ angular
 	    //holds the navigation and toggled state of menu
 	    .state('app', {
             url: "/app",
-            abstract: true,
+            //abstract: true,
             templateUrl: "app/app.view.html",
             controller: 'AppController',
             controllerAs : 'app'
@@ -39,7 +39,7 @@ angular
 	        }
 	        
 	    })
-
+		/*
 	    .state('app.auth', {
 	        url: '/auth',
 	        views : {

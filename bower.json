@@ -23,7 +23,10 @@
     "bootstrap-sass-official": "~3.3.5",
     "fontawesome": "~4.4.0",
     "gold-email-input": "PolymerElements/gold-email-input#~1.0.5",
-    "paper-input": "PolymerElements/paper-input#~1.0.15"
+    "iron-component-page": "PolymerElements/iron-component-page#~1.0.5",
+    "paper-header-panel": "PolymerElements/paper-header-panel#~1.0.5",
+    "paper-input": "PolymerElements/paper-input#~1.0.15",
+    "paper-toolbar": "PolymerElements/paper-toolbar#~1.0.4"
   },
   "resolutions": {
     "angular": "1.4.5"
