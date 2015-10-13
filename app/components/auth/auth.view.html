@@ -16,7 +16,7 @@
 			<form name="registerForm" novalidate>
 				<div class="form-group" ng-class="{ 'has-error has-feedback': registerForm.email.$touched && registerForm.email.$invalid || registerForm.email.$invalid && registerForm.$submitted}">
 					<label for="register__email">Email</label>
-					<input type="email" class="form-control" name="email" id="register__email" placeholder="Email" ng-model="auth.registerData.email" required>
+					<input type="email" class="form-control" name="email" id="register__email" email-taken placeholder="Email" ng-model="auth.registerData.email" required>
 					<form-control-feedback></form-control-feedback>
 					<div class="help-block">
 						<p class="description" ng-if="!registerForm.email.$touched && !registerForm.$submitted || registerForm.email.$valid" >The email address</p>
@@ -24,6 +24,7 @@
 						<ng-messages class="error" ng-if="registerForm.email.$invalid && registerForm.email.$touched || registerForm.$submitted" for="registerForm.email.$error">
 							<ng-messages-include src="error-required"></ng-messages-include>
 							<ng-messages-include src="error-email"></ng-messages-include>
+							<div ng-message="email-taken">This email is already taken</div>
 						</ng-messages>
 					</div>
 				</div>
@@ -41,6 +42,8 @@
 				</div>
 
 				<button class="btn btn-success" ng-click="auth.doRegister(registerForm)">Register</button>
+
+				<pre>{{registerForm | json}}</pre>
 			</form>
 
 		</tab>
@@ -62,24 +65,6 @@
 		  	</form>
 			
 		</tab>
-
-		<tab heading="Login polymer mix">
-
-			<h2>Login2 request</h2>
-
-			<p>Data: <pre>{{auth.loginData2 | json}}</pre></p>
-
-			<form name="loginForm2">
-
-
-				<gold-email-input name="email" id="loginform_email" required auto-validate error-message="invalid email" label="Email" angupoly="{value:'auth.loginData2.email'}"></gold-email-input>
-				<paper-input name="password" id="loginform_password" type="password" label="Password" angupoly="{value:'auth.loginData2.password'}"></paper-input>
-
-				<button class="btn btn-success" ng-click="auth.doLogin2(loginForm2)">Login</button>
-			</form>
-
-		</tab>
-
 
 
 		<tab heading="Logout">

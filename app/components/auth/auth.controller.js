@@ -3,22 +3,16 @@
 
 
 angular
-    .module('discere.auth.controller', ['discere.constant', 'firebase', 'angupoly'])
+    .module('discere.auth.controller', ['discere.commons.firebase.constant', 'discere.commons.firebase.validation','discere.auth.service'])
     .controller('AuthController', AuthController);
 
-	AuthController.$inject = ['AppConstant', '$firebaseAuth'];
+	AuthController.$inject = ['AuthService', 'FirebaseConstant'];
 
 	/** @ngInject */ 
-	function AuthController(AppConstant, $firebaseAuth)
+	function AuthController(AuthService, FirebaseConstant)
 	{
-		var ref = new Firebase(AppConstant.firebase_instance);
-
-		// jshint validthis: true 
+		// jshint validthis: true
 		var vm = this;
-
-		var ref = new Firebase(AppConstant.firebase_instance);
-		vm.authObj = $firebaseAuth(ref);
-
 
 
 		vm.registerServerError = false;
@@ -37,14 +31,6 @@ angular
 		};
 
 		vm.doLogin = doLogin;
-
-
-		vm.loginData2 = {
-			email : 'test@email.at',
-			password : 'asfasfds'
-		};
-		vm.doLogin2 = doLogin2;
-
 		//________________________________________
 
 		vm.doLogout = doLogout;
@@ -73,10 +59,7 @@ angular
 
 			if(registerForm.$valid) {
 
-				console.log(vm.registerData);
-
-				vm.authObj
-					.$createUser(vm.registerData)
+				AuthService.register(vm.registerData, true)
 						.then(
 							function(userData) {
 								console.log("User " + userData.uid + " created successfully!");
@@ -92,6 +75,8 @@ angular
 
 								if(error.code == 'EMAIL_TAKEN'){
 									//@TODO mark email input as invalid
+									registerForm.email.$setValidity(FirebaseConstant.validation.EMAIL_TAKEN, false);
+
 								}
 
 							}
@@ -131,39 +116,6 @@ angular
 			}
 		};
 
-		/**
-		 *
-		 * doLogin2
-		 *
-		 * If form is valid it try to login a firebase user
-		 *
-		 * @param {ngForm} loginForm
-		 *
-		 **/
-		function doLogin2(loginForm2){
-
-			console.log(loginForm2);
-
-			if(loginForm2.$valid) {
-
-				console.log(vm.loginData2);
-
-				vm.authObj
-					.$authWithPassword(vm.loginData2)
-					.then(
-					function(authData) {
-						vm.authState = authData;
-						console.log("Logged in as:", authData.uid);
-					}
-				)
-					.catch(
-					function(error) {
-						console.error("Authentication failed:", error);
-					}
-				);
-
-			}
-		};
 
 		/**
 		 * doLogout

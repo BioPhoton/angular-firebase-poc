@@ -11,16 +11,16 @@
     <title>Headless Drupal tests</title>
 
     <!-- compiled css -->
-    <link href="./assets/css/app.min.css" rel="stylesheet">
+    <link href="assets/css/app.min.css" rel="stylesheet">
     
     <!-- js dependencies -->
 
     <!-- angular and modules -->
-    <script src="./bower_components/angular/angular.min.js"></script>
-    <script src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="./bower_components/angular-messages/angular-messages.js"></script>
-    <script src="./bower_components/firebase/firebase.js"></script>
-    <script src="./bower_components/angularfire/dist/angularfire.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.js"></script>
 
       <!-- polymer -->
       <script src="bower_components/angu-poly/angupoly.js"></script>
@@ -28,24 +28,27 @@
       <link rel="import" href="app/commons/polymer/polymer.elements.html">
 
     <!-- third party libs -->
-    <script src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 	
 	<!-- common directives -->
-    <script src="./app/commons/directives/formControlFeedback.js"></script>
+    <script src="app/commons/directives/formControlFeedback.js"></script>
     
-     <!-- <script src="./assets/js/vendor-8e5ecb0ace.js"></script>  -->
-    
-     <!-- js app files  -->
-     <script src="./app/app.controller.js"></script>    
-     <script src="./app/components/home/home.controller.js"></script>
-     <script src="./app/components/auth/auth.controller.js"></script>
+     <!-- <script src="assets/js/vendor-8e5ecb0ace.js"></script>  -->
+      <script src="app/commons/firebase/firebase.constant.js"></script>
+      <script src="app/commons/firebase/firebase.validation.js"></script>
+      <script src="app/commons/auth/auth.service.js"></script>
 
-     <script src="./app/app.constant.js"></script>
-  	 <script src="./app/app.config.js"></script>
-     <script src="./app/app.states.js"></script>
-     <script src="./app/app.js"></script>
+      <!-- js app files  -->
+     <script src="app/app.controller.js"></script>
+     <script src="app/components/home/home.controller.js"></script>
+     <script src="app/components/auth/auth.controller.js"></script>
+
+     <script src="app/app.constant.js"></script>
+
+      <script src="app/app.states.js"></script>
+      <script src="app/app.js"></script>
     
-   <!-- <script src="./assets/js/main-92686618e4.js"></script> -->
+   <!-- <script src="assets/js/main-92686618e4.js"></script> -->
     
   </head>  
   

@@ -3,13 +3,13 @@
 
 
 	angular
-		.module('discere.config', ['firebase'])
+		.module('discere.run', ['ui.router','firebase'])
 		.run(runFunction);
 
-	runFunction.$inject['$rootScope', '$urlRouter', '$state', '$firebaseAuth'];
+	runFunction.$inject['$rootScope', '$urlRouter' ];
 
 	/** @ngInject */
-	function runFunction($rootScope,  $urlRouter, $state, $firebaseAuth) {
+	function runFunction($rootScope,  $urlRouter) {
 
 			var authObj = $firebaseAuth(ref);
 
