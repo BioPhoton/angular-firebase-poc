@@ -99,8 +99,7 @@ angular
 
 				console.log(loginForm);
 
-				vm.authObj
-					.$authWithPassword(vm.loginData)
+				AuthService.login(vm.loginData)
 						.then(
 							function(authData) {
 								vm.authState = authData;
@@ -124,16 +123,7 @@ angular
 		 */
 		function doLogout() {
 
-			vm.authObj.$unauth();
-
-			vm.authObj.$onAuth(function(authData) {
-
-				if (authData) {
-					vm.authState = authData;
-				} else {
-					vm.authState = authData;
-				}
-			});
+			AuthService.logout();
 
 		}
 
@@ -148,7 +138,7 @@ angular
 		 **/
 		function getAuth(){
 
-			var authData = vm.authObj.$getAuth();
+			var authData = AuthService.getAuth();
 
 			if (authData) {
 				vm.authState = authData;

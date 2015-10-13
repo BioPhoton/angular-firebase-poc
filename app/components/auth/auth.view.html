@@ -11,8 +11,6 @@
 
 			<h2>Register request</h2>
 
-			<div ng-if="auth.registerServerError" class="alert alert-danger">{{auth.registerServerError}}</div>
-
 			<form name="registerForm" novalidate>
 				<div class="form-group" ng-class="{ 'has-error has-feedback': registerForm.email.$touched && registerForm.email.$invalid || registerForm.email.$invalid && registerForm.$submitted}">
 					<label for="register__email">Email</label>
